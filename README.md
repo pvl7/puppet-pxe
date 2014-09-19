@@ -22,3 +22,7 @@
 4) mount /dev/cdrom /tftpboot/iso/centos[6,7]
 
 5) kickstart!
+
+##Limitations:
+
+Only tested with Centos/RedHat. Ubuntu/Debian are not supported yet
