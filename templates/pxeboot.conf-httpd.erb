@@ -3,9 +3,11 @@ Alias /ks <%= @tftp_ks_dir %>
 
 <Directory <%= @tftp_iso_dir -%>>
  Options Indexes FollowSymLinks
- Require all granted
+ Order allow,deny
+ Allow from all
 </Directory>
 <Directory <%= @tftp_ks_dir -%>>
  Options Indexes FollowSymLinks
- Require all granted
+ Order allow,deny
+ Allow from all
 </Directory>
