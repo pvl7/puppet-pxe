@@ -28,7 +28,7 @@ class pxeboot (
     ensure  => present,
     content => template("pxeboot/tftp.erb"),
     notify  => Service["xinetd"],
-    require => Package["xinetd"],
+    require => Package["tftp-server"],
   }
   file {$pxe_httpd_conf:
     ensure  => present,
