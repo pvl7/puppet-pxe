@@ -28,16 +28,19 @@ class pxeboot (
     ensure  => present,
     content => template("pxeboot/tftp.erb"),
     notify  => Service["xinetd"],
+    require => Package["xinetd"],
   }
   file {$pxe_httpd_conf:
     ensure  => present,
     content => template("pxeboot/pxeboot.conf-httpd.erb"),
     notify  => Service["httpd"],
+    require => Package["httpd"],
   }
   file {$pxe_dhcpd_conf:
     ensure => present,
     source => "puppet:///modules/${module_name}/dhcpd.conf",
     notify => Service["dhcpd"],
+    require => Package["dhcp"],
   }
   file {$pxe_default_conf:
     ensure => present,

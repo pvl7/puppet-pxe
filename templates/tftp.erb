@@ -5,14 +5,14 @@
 # and to start the installation process for some operating systems.
 service tftp
 {
-  socket_type   = dgram
+  socket_type = dgram
   protocol    = udp
-  wait      = yes
-  user      = root
+  wait        = yes
+  user        = root
   server      = /usr/sbin/in.tftpd
-  server_args   = -s <%= @tftp_root_dir  -%>
+  server_args = -s <%= @tftp_root_dir %>
   disable     = no
-  per_source    = 11
-  cps     = 100 2
-  flags     = IPv4
+  per_source  = 11
+  cps         = 100 2
+  flags       = IPv4
 }

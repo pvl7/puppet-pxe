@@ -1,11 +1,11 @@
 Alias /iso <%= @tftp_iso_dir %>
 Alias /ks <%= @tftp_ks_dir %>
 
-<Directory <%= @tftp_iso_dir  -%>>
+<Directory <%= @tftp_iso_dir -%>>
  Options Indexes FollowSymLinks
  Require all granted
 </Directory>
-<Directory <%= @tftp_ks_dir  -%>>
+<Directory <%= @tftp_ks_dir -%>>
  Options Indexes FollowSymLinks
  Require all granted
 </Directory>
