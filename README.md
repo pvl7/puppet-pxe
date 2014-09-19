@@ -6,11 +6,11 @@
 
 **Review default settings (change if required):**
 * vi pxeboot/files/dhcpd.conf
-* vi pxeboot/files/tftpd-defauls
+* vi pxeboot/files/tftpd-defaults
 
 2) puppet apply --modulepath ./ pxeboot/tests/pxeboot.pp
 
-**The default settings are:**
+*The default settings are:*
 * PXE boot network: 192.168.15.0/24
 * PXE boot server: 192.168.15.254
 * PXE boot root directory: /tftpboot
