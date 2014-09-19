@@ -1,5 +1,7 @@
 #puppet-pxe
 
+Configures a RHEL/Centos based PXE boot server with no hassle. Doesn't require any other Puppet modules. Doesn't require Puppet Master installed.
+
 ##Installation and usage:
 
 1) git clone https://github.com/pvl7/puppet-pxe pxeboot
