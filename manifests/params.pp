@@ -7,6 +7,14 @@ class pxeboot::params {
     'dhcp',
   ]
 
+  # kickstart network parameters
+  # change to whatever is needed
+  $pxe_server_ip           = '192.168.15.254'
+  $pxe_dhcp_subnet         = '192.168.15.0'
+  $pxe_dhcp_subnet_netmask = '255.255.255.0'
+  $pxe_dhcp_pool           = '192.168.15.120 192.168.15.125'
+  #
+
   $tftp_src_files   = '/usr/share/syslinux'
   $tftp_root_dir    = '/tftpboot'
   $tftp_ks_dir      = "${tftp_root_dir}/ks"

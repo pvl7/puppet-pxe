@@ -13,7 +13,7 @@ max-lease-time 7200;
 log-facility local7;
 option option-128 code 128 = string;
 option option-129 code 129 = text;
-next-server 192.168.15.254;
+next-server <%= @pxe_server_ip %>;
 
 class "pxeclients" {
  match if substring(option vendor-class-identifier, 0, 9) = "PXEClient";
@@ -21,10 +21,10 @@ class "pxeclients" {
 }
 
 shared-network 1 {
- subnet 192.168.15.0 netmask 255.255.255.0 {
+ subnet <%= @pxe_dhcp_subnet %> netmask <%= @pxe_dhcp_subnet_netmask %> {
  }
  pool {
   allow members of "pxeclients";
-  range dynamic-bootp 192.168.15.120 192.168.15.125;
+  range dynamic-bootp <%= @pxe_dhcp_pool %>;
  }
 }
