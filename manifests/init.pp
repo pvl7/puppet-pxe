@@ -58,6 +58,7 @@ class pxeboot (
     remounts  => false,
     atboot    => true,
     ensure    => mounted,
+    require   => File["${tftp_iso_dir}"],
   }
   service {'httpd':
     ensure   => running,
