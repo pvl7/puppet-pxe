@@ -37,6 +37,7 @@ class pxeboot::params {
   $tftp_src_files        = '/usr/share/syslinux'
   $tftp_root_dir         = '/tftpboot'
   $tftp_iso_mount_point  = 'iso/x86_64'
+  $tftp_iso_image_dir    = "${tftp_root_dir}/iso"
   $tftp_ks_dir           = "${tftp_root_dir}/ks"
   $pxelinux_cfg_dir      = "${tftp_root_dir}/pxelinux.cfg"
   $tftp_iso_dir          = "${tftp_root_dir}/${tftp_iso_mount_point}"
@@ -49,6 +50,7 @@ class pxeboot::params {
 
   $tftp_dirs = [
     $tftp_root_dir,
+    $tftp_iso_image_dir,
     $tftp_ks_dir,
     $tftp_iso_dir,
     $pxelinux_cfg_dir,
