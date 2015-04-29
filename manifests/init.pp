@@ -16,7 +16,7 @@ class pxeboot (
   $pxe_default_conf             = $pxeboot::params::pxe_default_conf,
   $pxe_ks_centos6_conf          = $pxeboot::params::pxe_ks_centos6_conf,
   $pxe_ks_centos7_conf          = $pxeboot::params::pxe_ks_centos7_conf,
-  $pxe_ks_centos7_bond_conf     = $pxeboot::params::pxe_ks_centos7_conf,
+  $pxe_ks_centos7_bond_conf     = $pxeboot::params::pxe_ks_centos7_bond_conf,
 ){
 
   package {$packages:

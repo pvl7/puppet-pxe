@@ -6,14 +6,19 @@ ONTIMEOUT local
 menu title ########## PXE Boot Menu ##########
 
 label 1
-menu label ^1) Install CentOS 6 x86_64
-kernel iso/centos6/images/pxeboot/vmlinuz
-append initrd=iso/centos6/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso/centos6 devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos6.cfg
+menu label ^1) Install CentOS 7 x86_64
+kernel iso/images/pxeboot/vmlinuz
+append initrd=iso/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos7.cfg
 
 label 2
-menu label ^2) Install CentOS 7 x86_64
-kernel iso/centos7/images/pxeboot/vmlinuz
-append initrd=iso/centos7/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso/centos7 devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos7.cfg
+menu label ^2) Install CentOS 7 with bonding (2 NICs) x86_64
+kernel iso/images/pxeboot/vmlinuz
+append initrd=iso/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos7bond.cfg
+
+label 8
+menu label ^8) Install CentOS 6 x86_64
+kernel iso/images/pxeboot/vmlinuz
+append initrd=iso/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos6.cfg
 
 label 9
 menu label ^9) Boot from local drive localboot
