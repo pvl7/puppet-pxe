@@ -5,20 +5,13 @@ ONTIMEOUT local
 
 menu title ########## PXE Boot Menu ##########
 
-label 1
-menu label ^1) Install CentOS 7 x86_64
-kernel iso/images/pxeboot/vmlinuz
-append initrd=iso/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos7.cfg
+<% @menu.each do |menu_key, i| %>
+label <%= #{i['label']} %>
+menu label ^<%= #{i['label']} %>) <%= #{i['title']} %>
+kernel <%= @tftp_iso_mount_point %>/images/pxeboot/vmlinuz
+append initrd=<%= @tftp_iso_mount_point %>/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/<%= @tftp_iso_mount_point %> devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/<%= #{i['config']} %>
 
-label 2
-menu label ^2) Install CentOS 7 with bonding (2 NICs) x86_64
-kernel iso/images/pxeboot/vmlinuz
-append initrd=iso/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos7bond.cfg
+<% end %>
 
-label 8
-menu label ^8) Install CentOS 6 x86_64
-kernel iso/images/pxeboot/vmlinuz
-append initrd=iso/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/iso devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/centos6.cfg
-
-label 9
-menu label ^9) Boot from local drive localboot
+label B
+menu label ^B) Boot from local drive localboot

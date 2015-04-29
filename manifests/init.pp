@@ -9,14 +9,16 @@ class pxeboot (
   $tftp_src_files               = $pxeboot::params::tftp_src_files,
   $tftp_root_dir                = $pxeboot::params::tftp_root_dir,
   $tftp_ks_dir                  = $pxeboot::params::tftp_ks_dir,
+  $tftp_iso_mount_point         = $pxeboot::params::tftp_iso_mount_point,
   $tftp_iso_dir                 = $pxeboot::params::tftp_iso_dir,
   $pxe_xinetd_conf              = $pxeboot::params::pxe_xinetd_conf,
   $pxe_httpd_conf               = $pxeboot::params::pxe_httpd_conf,
   $pxe_dhcpd_conf               = $pxeboot::params::pxe_dhcpd_conf,
   $pxe_default_conf             = $pxeboot::params::pxe_default_conf,
-  $pxe_ks_centos6_conf          = $pxeboot::params::pxe_ks_centos6_conf,
-  $pxe_ks_centos7_conf          = $pxeboot::params::pxe_ks_centos7_conf,
-  $pxe_ks_centos7_bond_conf     = $pxeboot::params::pxe_ks_centos7_bond_conf,
+  $pxe_ks_config_menu           = $pxeboot::params::pxe_ks_config_menu,
+  #  $pxe_ks_centos6_conf          = $pxeboot::params::pxe_ks_centos6_conf,
+  #  $pxe_ks_centos7_conf          = $pxeboot::params::pxe_ks_centos7_conf,
+  #  $pxe_ks_centos7_bond_conf     = $pxeboot::params::pxe_ks_centos7_bond_conf,
 ){
 
   package {$packages:
