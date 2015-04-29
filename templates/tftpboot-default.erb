@@ -4,13 +4,11 @@ timeout 300
 ONTIMEOUT local
 
 menu title ########## PXE Boot Menu ##########
-
-<% @menu.each do |menu_key, i| %>
-label <%= #{i['label']} %>
-menu label ^<%= #{i['label']} %>) <%= #{i['title']} %>
+<% @pxe_ks_config_menu.each_pair do |key, i| %>
+label <%= i['label'] %>
+menu label ^<%= i['label'] %>) <%= i['title'] %>
 kernel <%= @tftp_iso_mount_point %>/images/pxeboot/vmlinuz
-append initrd=<%= @tftp_iso_mount_point %>/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/<%= @tftp_iso_mount_point %> devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/<%= #{i['config']} %>
-
+append initrd=<%= @tftp_iso_mount_point %>/images/pxeboot/initrd.img method=http://<%= @pxe_server_ip %>/<%= @tftp_iso_mount_point %> devfs=nomount ks=http://<%= @pxe_server_ip %>/ks/<%= i['config'] %>
 <% end %>
 
 label B

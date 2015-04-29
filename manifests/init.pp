@@ -16,9 +16,6 @@ class pxeboot (
   $pxe_dhcpd_conf               = $pxeboot::params::pxe_dhcpd_conf,
   $pxe_default_conf             = $pxeboot::params::pxe_default_conf,
   $pxe_ks_config_menu           = $pxeboot::params::pxe_ks_config_menu,
-  #  $pxe_ks_centos6_conf          = $pxeboot::params::pxe_ks_centos6_conf,
-  #  $pxe_ks_centos7_conf          = $pxeboot::params::pxe_ks_centos7_conf,
-  #  $pxe_ks_centos7_bond_conf     = $pxeboot::params::pxe_ks_centos7_bond_conf,
 ){
 
   package {$packages:
@@ -53,23 +50,11 @@ class pxeboot (
     ensure  => present,
     content => template("${module_name}/tftpboot-default.erb"),
   }
-  file {$pxe_ks_centos6_conf:
-    ensure => present,
-    source => "puppet:///modules/${module_name}/centos6.cfg",
-  }
-  file {$pxe_ks_centos7_conf:
-    ensure => present,
-    source => "puppet:///modules/${module_name}/centos7.cfg",
-  }
-  file {$pxe_ks_centos7_bond_conf:
-    ensure => present,
-    source => "puppet:///modules/${module_name}/centos7bond.cfg",
-  }
 
   mount {"${tftp_iso_dir}":
     device    => '/dev/cdrom',
     fstype    => 'iso9660',
-    options   => "defaults",
+    options   => 'defaults',
     remounts  => false,
     atboot    => true,
     ensure    => mounted,
