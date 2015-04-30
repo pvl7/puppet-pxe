@@ -24,10 +24,16 @@ class pxeboot (
   file {$tftp_dirs:
     ensure => directory,
   } ->
-  filecopy {$tftp_files:
+  build_kickstart_env {$tftp_files:
     src_dir => $tftp_src_files,
     dst_dir => $tftp_root_dir,
+    require => File["${tftp_root_dir}"]
   }
+  create_kickstart_profiles {$pxe_ks_files:
+    dst_dir => $tftp_ks_dir,
+    require => File["${tftp_ks_dir}"],
+  }
+  file {$pxe_httpd_conf:
   file {$pxe_xinetd_conf:
     ensure  => present,
     content => template("${module_name}/tftp.erb"),
@@ -75,12 +81,23 @@ class pxeboot (
 
 }
 
-define filecopy (
+# defined type to build pxe tftp boot environment
+define build_kickstart_env (
   $src_dir,
   $dst_dir,
 ){
   file {"${dst_dir}/${name}":
     ensure => present,
     source => "${src_dir}/${name}",
+  }
+}
+
+# defined type to provision kickstart configurations
+define create_kickstart_profiles (
+  $dst_dir,
+){
+  file {"${dst_dir}/${name}":
+    ensure => present,
+    source => "puppet:///modules/${module_name}/ks/${name}",
   }
 }

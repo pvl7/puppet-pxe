@@ -25,6 +25,13 @@ class pxeboot::params {
       title   => 'Centos 6 x86_64',
       },
   }
+
+  # kickstart profile files provisioning
+  $pxe_ks_files = [
+    'centos7.cfg',
+    'centos7bond.cfg',
+    'centos6.cfg',
+  ]
   ### end of configurable section ###
 
   $packages = [
