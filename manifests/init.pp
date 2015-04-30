@@ -16,6 +16,7 @@ class pxeboot (
   $pxe_dhcpd_conf               = $pxeboot::params::pxe_dhcpd_conf,
   $pxe_default_conf             = $pxeboot::params::pxe_default_conf,
   $pxe_ks_config_menu           = $pxeboot::params::pxe_ks_config_menu,
+  $pxe_ks_files                 = $pxeboot::params::pxe_ks_files,
 ){
 
   package {$packages:
@@ -33,7 +34,6 @@ class pxeboot (
     dst_dir => $tftp_ks_dir,
     require => File["${tftp_ks_dir}"],
   }
-  file {$pxe_httpd_conf:
   file {$pxe_xinetd_conf:
     ensure  => present,
     content => template("${module_name}/tftp.erb"),
