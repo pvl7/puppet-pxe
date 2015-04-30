@@ -1,13 +1,12 @@
 Alias /iso <%= @tftp_iso_dir %>
 Alias /ks <%= @tftp_ks_dir %>
 
+# Apache 2.4 syntax!
 <Directory <%= @tftp_iso_dir -%>>
- Options Indexes FollowSymLinks
- Order allow,deny
- Allow from all
+  Options Indexes FollowSymLinks
+  Require all granted
 </Directory>
 <Directory <%= @tftp_ks_dir -%>>
- Options Indexes FollowSymLinks
- Order allow,deny
- Allow from all
+  Options Indexes FollowSymLinks
+  Require all granted
 </Directory>
