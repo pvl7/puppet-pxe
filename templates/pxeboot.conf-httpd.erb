@@ -1,8 +1,8 @@
-Alias /iso <%= @tftp_iso_dir %>
+Alias /iso <%= @tftp_iso_image_dir %>
 Alias /ks <%= @tftp_ks_dir %>
 
 # Apache 2.4 syntax!
-<Directory <%= @tftp_iso_dir -%>>
+<Directory <%= @tftp_iso_image_dir -%>>
   Options Indexes FollowSymLinks
   Require all granted
 </Directory>

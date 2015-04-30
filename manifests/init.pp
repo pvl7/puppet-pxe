@@ -9,6 +9,7 @@ class pxeboot (
   $tftp_src_files               = $pxeboot::params::tftp_src_files,
   $tftp_root_dir                = $pxeboot::params::tftp_root_dir,
   $tftp_ks_dir                  = $pxeboot::params::tftp_ks_dir,
+  $tftp_iso_image_dir           = $pxeboot::params::tftp_iso_image_dir,
   $tftp_iso_mount_point         = $pxeboot::params::tftp_iso_mount_point,
   $tftp_iso_dir                 = $pxeboot::params::tftp_iso_dir,
   $pxe_xinetd_conf              = $pxeboot::params::pxe_xinetd_conf,
