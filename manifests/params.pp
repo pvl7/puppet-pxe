@@ -16,11 +16,16 @@ class pxeboot::params {
       },
     item2  => { 
       label   => '1',
-      config  => 'centos7bond.cfg',
-      title   => 'Centos 7 (with NIC bonding) x86_64',
+      config  => 'centos7-cluster1.cfg',
+      title   => 'Centos 7 Cluster Node 1 x86_64',
       },
     item3  => { 
       label   => '2',
+      config  => 'centos7-cluster2.cfg',
+      title   => 'Centos 7 Cluster Node 2 x86_64',
+      },
+    item4  => { 
+      label   => '3',
       config  => 'centos6.cfg',
       title   => 'Centos 6 x86_64',
       },
@@ -29,7 +34,8 @@ class pxeboot::params {
   # kickstart profile files provisioning
   $pxe_ks_files = [
     'centos7.cfg',
-    'centos7bond.cfg',
+    'centos7-cluster1.cfg',
+    'centos7-cluster2.cfg',
     'centos6.cfg',
   ]
   ### end of configurable section ###
