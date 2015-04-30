@@ -13,6 +13,9 @@ Configures a RHEL/Centos based PXE boot server with no hassle. Doesn't require a
 vi pxeboot/manifests/params.pp
 
 and adjust the following parameters to suit your needs
+
+The kickstart config files are in $module_name/files/ks/
+
 ```
   # kickstart network parameters
   # change to whatever is needed
